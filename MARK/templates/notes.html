@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 10%;
+            margin-left: 30%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .title-input, .content-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        .save-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/dashboard" method="POST">
+    <div class="container">
+        <h2>Notes</h2>
+        <input type="text" class="title-input" name="Title" placeholder="Enter Title">
+        <textarea class="content-input" name="Content" rows="10" placeholder="Write your notes here..."></textarea>
+        <button class="save-btn" onclick="saveNotes()" href='/dashboard'>Save</button>
+    </div>
+    </form>
+    <script>
+        function saveNotes() {
+            alert("Notes saved!");
+        }
+    </script>
+</body>
+</html>

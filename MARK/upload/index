@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="login-box">
+            <form action="/auth" method="POST" class="clearfix">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="create-outline"></ion-icon> </span>
+                    <input type="text" id="Name" name="Name" required>
+                    <label> Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon" id="eye-icon" onclick="togglePasswordVisibility()">
+                        <ion-icon name="eye-off"></ion-icon>
+                    </span>
+                    <input type="password" id="password" name="Password" required>
+                    <label> Password</label>
+                </div>
+                <div class="remember-forget">
+                    <label>
+                        <input type="checkbox">Remember Me
+                    </label>
+                </div>
+                <div class="register">
+                    <label>Don't have an account? <a href="/registerate">Register</a></label>
+                </div>
+                <br>
+                <button type="submit">Login</button>
+                {% if message %}
+                <span class="error-message">{{ message }}</span>
+                {% endif %}
+            </form>
+        </div>
+    </section>
+
+    <script type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var eyeIcon = document.getElementById("eye-icon");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.innerHTML = '<ion-icon name="eye"></ion-icon>';
+            } else {
+                passwordField.type = "password";
+                eyeIcon.innerHTML = '<ion-icon name="eye-off"></ion-icon>';
+            }
+        }
+    </script>
+</body>
+
+</html>
